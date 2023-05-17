@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card">
+    <div class="heading">Witaj!</div>
+    <div class="content">
+      <mat-form-field>
+        <input
+            matInput
+            type="text"
+            placeholder="Jak się nazywasz?"
+            [(ngModel)]="username"
+            #usernameInput="ngModel"
+            required>
+          <button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="usernameInput.invalid && usernameInput.touched">
+            Nazwa użytkownika jest wymagana.
+          </mat-error>
+      </mat-form-field>
+      <button
+        class="go-next-btn"
+        mat-raised-button
+        color="primary"
+        (click)="onNextBtnClick()"
+        [disabled]="username === ''">Dalej</button>
+    </div>
+  </div>
+</div>
