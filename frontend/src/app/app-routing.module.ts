@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { RoomComponent } from './components/room/room.component';
+import { RoomListComponent } from './components/room-list/room-list.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'room-list',
+    component: RoomListComponent,
   },
   {
     path: 'room',

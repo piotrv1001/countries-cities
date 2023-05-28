@@ -1,8 +1,26 @@
-<div class="container">
-  <div class="user-list">
-    <div *ngFor="let username of usernameArray" class="user">
-      <b>{{ username }}</b> dołączył do pokoju!
-    </div>
+<div class="card">
+  <div class="heading">{{ chatRoom?.name }}</div>
+  <div class="content">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Podaj hasło"
+        [(ngModel)]="password"
+        #passwordInput="ngModel"
+        required>
+      <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordInput.invalid && passwordInput.touched">
+        Hasło jest wymagane.
+      </mat-error>
+    </mat-form-field>
+    <button
+        class="go-next-btn"
+        mat-raised-button
+        color="primary"
+        (click)="onRoomBtnClick(chatRoom?.name)"
+        [disabled]="!password">Dołącz</button>
   </div>
 </div>
-

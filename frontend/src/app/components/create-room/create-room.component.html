@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="heading">Tworzenie pokoju</div>
+  <div class="content">
+    <h3>Nazwa</h3>
+    <mat-form-field style="margin-bottom: 1rem;">
+      <input
+        matInput
+        type="text"
+        placeholder="Podaj nazwę pokoju"
+        [(ngModel)]="roomName"
+        #nameInput="ngModel"
+        required>
+      <button *ngIf="roomName" matSuffix mat-icon-button aria-label="Clear" (click)="roomName=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="nameInput.invalid && nameInput.touched">
+        Nazwa jest wymagana.
+      </mat-error>
+    </mat-form-field>
+    <h3>Hasło</h3>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Utwórz hasło"
+        [(ngModel)]="password"
+        #passwordInput="ngModel"
+        required>
+      <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordInput.invalid && passwordInput.touched">
+        Hasło jest wymagane.
+      </mat-error>
+    </mat-form-field>
+    <button
+        class="go-next-btn"
+        mat-raised-button
+        color="primary"
+        (click)="onCreateRoom()"
+        [disabled]="!password || !roomName">Stwórz pokój</button>
+  </div>
+</div>

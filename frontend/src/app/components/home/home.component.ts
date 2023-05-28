@@ -14,7 +14,7 @@ export class HomeComponent {
 
   onNextBtnClick(): void {
     const navExtras = { state: { username: this.username } };
-    this.router.navigate(['room'], navExtras);
+    this.router.navigate(['room-list'], navExtras);
   }
 
 }

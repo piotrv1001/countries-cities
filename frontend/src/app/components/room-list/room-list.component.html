@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <app-create-room
+  (createRoomBtnClick)="handleCreateRoom($event)">
+  </app-create-room>
+  <div class="divider"></div>
+  <app-room
+    *ngFor="let chatRoom of chatRooms"
+    [chatRoom]="chatRoom">
+  </app-room>
+</div>
+
